@@ -17,16 +17,20 @@ jobs:
         run: sudo apt install tar -y
 
       - name: Eliminar antes de clonar
-        run : sudo rm -rf ${{secrets.PATH}} 
+        run : sudo rm -rf /opt/deploy/
+        #run : sudo rm -rf ${{secrets.PATH}} 
 
-      - name: Crear carpeta con día y hora    
-        run: sudo mkdir ${{secrets.PATH}} 
+      - name: Crear carpeta con día y hora
+        run: sudo mkdir /opt/deploy/
+        #run: sudo mkdir ${{secrets.PATH}} 
 
       - name: Ir a carpeta con día y hora
-        run: cd ${{secrets.PATH}}
+        run: cd /opt/deploy/
+        #run: cd ${{secrets.PATH}}
 
       - name: permisos en otra ruta
-        run: sudo chmod 777 ${{secrets.PATH}}
+        run: sudo chmod 777 /opt/deploy/
+        #run: sudo chmod 777 ${{secrets.PATH}}
 
       - name: Clonar Repositorio
         run:  git clone https://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@github.com/Samuelcloud07/java-tomcat-maven-example.git ${{secrets.PATH}}
