@@ -13,10 +13,8 @@ jobs:
       - name: instalar git
         run: sudo yum install git -y
 
-      - name: instalar git
+      - name: instalar tar
         run: sudo yum install tar -y
-
- 
 
       - name: Eliminar antes de clonar
         run : rm -rf ${{secrets.PATH}} 
@@ -27,15 +25,11 @@ jobs:
       - name: Ir a carpeta con día y hora
         run: cd ${{secrets.PATH}}
 
- 
-
       - name: permisos en otra ruta
         run: chmod 777 ${{secrets.PATH}}
 
       - name: Clonar Repositorio
         run:  git clone https://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@github.com/Samuelcloud07/java-tomcat-maven-example.git ${{secrets.PATH}}
-
- 
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
@@ -47,14 +41,9 @@ jobs:
         uses: aahmed-se/setup-maven@v3
         with:
            maven-version: 3.6.1
-
- 
-
           
      # - name: Setup Maven Action
       #  uses: s4u/setup-maven-action@v1.8.0
-
- 
 
       - name: version mvn
         run: mvn -version
@@ -67,3 +56,4 @@ jobs:
       - name: Pasar el war        
         run : |
                   cp java-tomcat-maven-example.war /usr/local/tomcat/webapps/
+                
