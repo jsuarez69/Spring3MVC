@@ -6,15 +6,15 @@ on:
 jobs:
   deploy-master:
     if: ${{ github.ref == 'refs/heads/master' }}
-    runs-on: redhat-latest
+    runs-on: ubuntu-latest
     environment:
       name: 'main'
     steps:
       - name: instalar git
-        run: sudo yum install git -y
+        run: sudo apt install git -y
 
       - name: instalar tar
-        run: sudo yum install tar -y
+        run: sudo apt install tar -y
 
       - name: Eliminar antes de clonar
         run : rm -rf ${{secrets.PATH}} 
